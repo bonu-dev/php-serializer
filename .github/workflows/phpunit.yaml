@@ -18,6 +18,12 @@ jobs:
         with:
           php-version: ${{ matrix.php-versions }}
           extensions: igbinary
+      - uses: actions/cache@v4
+        with:
+          path: vendor
+          key: composer-${{ matrix.php-version }}-${{ hashFiles('composer.lock', 'composer.json') }}
+          restore-keys: |
+            composer-${{ matrix.php-version }}-
       - name: Install dependencies
         run: composer install --prefer-dist --no-interaction --no-progress
       - run: vendor/bin/phpunit
