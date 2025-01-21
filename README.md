@@ -4,6 +4,12 @@
 
 Simple PHP wrapper for serialization, that supports serialization extensions.
 
+Currently, native and igbinary serializers are supported.
+
+## Requirements
+
+- Minimum version of PHP 8.2
+
 ## Installation
 
 ```bash
